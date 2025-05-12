@@ -22,7 +22,7 @@ excel_editing(combined, directory)
 
 statistics(combined)
 
-search('final')
+search('Final')
 
 
 
