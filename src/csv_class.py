@@ -5,11 +5,18 @@ import pandas as pd
 class CSV:
 
     def __init__(self, name):
+
         self.name = name.strip().lower()
         self.excel_directory = fr"{os.path.dirname(os.path.abspath(__file__))}\{self.name}.csv"  # Path to the CSV file
        
-        # Load the CSV file into a DataFrame using ISO-8859-1 encoding to handle special characters
-        self.df = pd.read_csv(self.excel_directory, encoding='ISO-8859-1')  # Reading CSV into pandas DataFrame
+        try:
+            # Load the CSV file into a DataFrame using ISO-8859-1 encoding to handle special characters
+            self.df = pd.read_csv(self.excel_directory, encoding='ISO-8859-1')  # Reading CSV into pandas DataFrame
+
+        except FileNotFoundError:
+            print(f'File not found. Check if "{name}" exists in the directory {os.path.dirname(os.path.abspath(__file__))}')
+            raise SystemExit
+            
 
     def full_file(self):
         return self.df

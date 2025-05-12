@@ -10,8 +10,7 @@ def find_sentences(name, inserted_unit):
     # These are boundaries that cut off the sentences
     end_boundaries = [1]
 
-
-
+ 
     boundary = CSV(name).rows('boundary')
     words = CSV(name).rows('word')
 
@@ -81,7 +80,7 @@ def find_sentences(name, inserted_unit):
 
 
 def search(name):
- 
+    
     while True:
 
         inserted_unit = input(f'\nSearch for unit in excel by {name}: ')
